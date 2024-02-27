@@ -1,0 +1,73 @@
+html { font-size: 14px; }
+
+@media (min-width: 768px) {
+    html { font-size: 16px; }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus { box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb; }
+
+html { position: relative; min-height: 100%; }
+
+body { margin-bottom: 60px; background-color: #F1F4F6; }
+
+* a { text-decoration: none !important; color: darkslategray !important; }
+
+/*Master*/
+.master_map { border-bottom: 1px solid #D3D3D3; color: darkslategray; padding: 5px 15px; position: fixed; top: 50px; left: 200px; background-color: white; width: 100%; z-index: 2; }
+ 
+.master_top_outer { position: relative; width: 100%; height: 50px; padding: 5px; background-color: #252733; position:fixed; z-index:3; }
+
+.master_top_logo { height: 30px; padding: 5px; float: left; }
+
+.master_top_log_out { position: absolute; right: 20px; top: 10px; width: 20px; height: 20px; }
+
+.master_left_outer { width: 200px; }
+
+.master_left_search_outer { width: 330px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 5px; border-bottom: 2px solid #DBDBEA; background-color: #169BD6; }
+
+.master_left_search_image { width: 21px; height: 19px; margin-right: 14px; float: left; background-image: url('/Images/kategori.png'); background-repeat: no-repeat; background-position-y: 4px; }
+
+.master_left_search_input { width: 295px; float: left; }
+
+.master_right_outer { width: 90%; }
+/*Master*/
+
+
+/*Global*/
+.global_page_header { padding-left: 20px; padding-top: 10px; padding-bottom: 10px; font-size: 16px; color: #6C6C6C; background-color: #EEEEEE; }
+
+.global_content_outer { padding: 20px; }
+
+.global_controls_header { padding: 5px; background-color: #EEEEEE; border: 1px solid #EEEEEE; font-size: 15px; color: #6C6C6C; }
+
+.global_controls_outer { padding: 5px; margin-bottom: 10px; border: 1px solid #EEEEEE; }
+
+.global_data_input_area_float_left_50 { width: 48%; min-width: 300px; float: left; padding-right: 2%; position: relative; }
+
+.global_data_input_area_float_left_33 { width: 31%; min-width: 220px; float: left; padding-right: 2%; position: relative; }
+
+.global_data_input_area_float_left_25 { width: 25%; min-width: 220px; float: left; padding-right: 2%; position: relative; }
+
+.global_data_input_area_float_left_66 { width: 64%; min-width: 220px; float: left; padding-right: 2%; position: relative; }
+
+.global_control_item_outer { overflow: hidden; margin-bottom: 5px; }
+
+.global_control_item_text { float: left; width: 100px; font-size: 13px; color: #6C6C6C; }
+
+.global_control_item_control_single { float: left; width: 210px; font-size: 13px; }
+
+.global_control_item_control_multiple { float: left; width: 140px; font-size: 13px; }
+
+.global_control_item_control_triple { float: left; width: 70px; font-size: 13px; }
+
+.global_control_item_control_vertical_seperator { float: left; width: 3px; margin-right: 4px; margin-left: 2px; }
+
+
+
+.global_grid_outer { }
+
+.global_button { background-color: #2D89EF; color: white; padding-top: 7px; padding-bottom: 7px; padding-left: 15px; padding-right: 15px; border: none; border-bottom-width: 0px; cursor: pointer; margin-right: 5px; }
+
+.global_button_alternate { background-color: #DF0023; color: white; padding-top: 7px; padding-bottom: 7px; padding-left: 15px; padding-right: 15px; border: none; border-bottom-width: 0px; cursor: pointer; margin-right: 5px; }
+
+/*Global*/

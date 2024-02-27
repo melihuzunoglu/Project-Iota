@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "RabbitMq";
+}
+@section Map {
+ RabbitMq
+ }
+<form action="/RabbitMq/SendMessage/" method="post">
+	<button type="submit" class="btn btn-primary btn-sm">
+		Send Message
+	</button>
+</form>
+
+@section Scripts{
+	<script>
+		if (@ViewBag.MessageSendStatus== 2) {
+			Swal.fire({
+				icon: "error",
+				text: "Message couldn't be send.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/RabbitMq/Index" })
+		}
+		else if (@ViewBag.MessageSendStatus== 1) {
+			Swal.fire({
+				icon: "success",
+				text: "Message has been send.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/RabbitMq/Index" })
+		}
+	</script>
+}

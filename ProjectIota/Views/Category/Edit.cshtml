@@ -1,0 +1,66 @@
+﻿@model ProjectIota.Models.Category
+
+@{
+	ViewData["Title"] = "Category Edit";
+}
+
+@section Map {
+	<a href="/Category/Index">Category</a> / Edit
+ }
+
+<div class="h-100 d-flex" style="">
+	<form method="post" asp-controller="Category" asp-action="EditCategory">
+		<div style="width:300px;">
+			<div style="margin-bottom:10px;">
+				<label>Category No</label>
+				<input type="text" asp-for="CategoryId" class="form-control" readonly />
+			</div>
+			<div style="margin-bottom:10px;">
+				<label>Name *</label>
+				<input type="text" asp-for="Name" class="form-control" />
+			</div>
+			<div style="margin-bottom:10px;">
+				<label>Parent Category</label>
+				<ejs-dropdowntree id="tre" popupHeight="200px" placeholder="Select Parent Category" changeOnBlur="false" ejs-for="ParentId">
+					<e-dropdowntree-fields dataSource="@ViewBag.CategoryDropdownData" value="nodeId" parentValue="pid" text="nodeText" hasChildren="hasChild" expanded="expanded"></e-dropdowntree-fields>
+				</ejs-dropdowntree>
+			</div>
+			<div style="margin-bottom:10px;">
+				<button type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+@section Scripts{
+	<script>
+		if (@ViewBag.SaveStatus== 0) {
+			Swal.fire({
+				icon: "error",
+				text: "Please fill in all fields.",
+				confirmButtonText: "Ok"
+			})
+		}
+		else if (@ViewBag.SaveStatus== 1) {
+			Swal.fire({
+				icon: "error",
+				text: "Please fill in the required (*) fields.",
+				confirmButtonText: "Ok"
+			})
+		}
+		else if (@ViewBag.SaveStatus== 2) {
+			Swal.fire({
+				icon: "error",
+				text: "Update operation failed.",
+				confirmButtonText: "Ok"
+			})
+		}
+		else if (@ViewBag.SaveStatus== 3) {
+			Swal.fire({
+				icon: "success",
+				text: "Update operation successful.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/Category/Index" })
+		}
+	</script>
+}

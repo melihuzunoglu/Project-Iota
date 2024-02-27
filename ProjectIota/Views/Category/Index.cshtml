@@ -1,0 +1,67 @@
+﻿@{
+	ViewData["Title"] = "Category";
+}
+
+@section Map {
+ Category
+ }
+
+<div style="margin-bottom:10px;">
+	<form action="/Category/Add/" method="post">
+		<button type="submit" class="btn btn-primary btn-sm">
+			Add New Record
+		</button>
+	</form>
+</div>
+<div>
+	<ejs-grid id="grid" dataSource="@ViewBag.gridData" allowPaging="true" allowFiltering="true" allowExcelExport="true" allowPdfExport="true" allowSorting="true">
+		<e-grid-columns>
+			<e-grid-column headerText="Category No" field="CategoryId"></e-grid-column>
+			<e-grid-column headerText="Name" field="Name"></e-grid-column>
+			<e-grid-column headerText="Parent Category Name" field="ParentCategoryName"></e-grid-column>
+			<e-grid-column headerText="Actions" template="#actionColumnTemplate"></e-grid-column>
+		</e-grid-columns>
+	</ejs-grid>
+	<script id="actionColumnTemplate" type="text/x-template">
+		<div class="d-flex flex-row justify-content-start">
+			<form action="/Category/Edit/${CategoryId}" method="post">
+				<button type="submit" class="btn btn-primary btn-sm">
+					Edit
+				</button>
+			</form>
+			&nbsp;
+			<form action="/Category/DeleteCategory/${CategoryId}" method="post">
+				<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(&quot;Are sure to delete this record?&quot;)">
+					Delete
+				</button>
+			</form>
+		</div>
+	</script>
+</div>
+
+
+@section Scripts{
+	<script>
+		if (@ViewBag.DeleteStatus== 1) {
+			Swal.fire({
+				icon: "error",
+				text: "Delete operation failed.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/Category/Index" })
+		}
+		else if (@ViewBag.DeleteStatus== 2) {
+			Swal.fire({
+				icon: "error",
+				text: "The category you are trying to delete has subcategories.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/Category/Index" })
+		}
+		else if (@ViewBag.DeleteStatus== 3) {
+			Swal.fire({
+				icon: "success",
+				text: "Delete operation successful.",
+				confirmButtonText: "Ok"
+			}).then(function () { window.location.href = "/Category/Index" })
+		}
+	</script>
+}

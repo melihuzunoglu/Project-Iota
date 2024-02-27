@@ -1,0 +1,43 @@
+﻿@model ProjectIota.Models.User
+
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+<div class="h-100 d-flex align-items-center justify-content-center" style="padding-top:70px;">
+	<form method="post" asp-controller="UserLogin" asp-action="Login">
+		<div style="width:300px;">
+			<h1 class="display-6">Login</h1>
+			<div style="margin-bottom:10px;">
+				<label asp-for="EMail">E-Mail</label>
+				<input type="email" asp-for="EMail" class="form-control" />
+			</div>
+			<div style="margin-bottom:10px;">
+				<label asp-for="Password">Password</label>
+				<input type="password" asp-for="Password" class="form-control" />
+			</div>
+			<div style="margin-bottom:10px;">
+				<button type="submit" class="btn btn-primary">Login</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+@section Scripts{
+	<script>
+		if (@ViewBag.LoginStatus== 1) {
+			Swal.fire({
+				icon: "error",
+				text: "Please fill in all fields.",
+				confirmButtonText: "Ok"
+			})
+		}
+		else if (@ViewBag.LoginStatus== 2) {
+			Swal.fire({
+				icon: "error",
+				text: "Your E-Mail or Password is incorrect.",
+				confirmButtonText: "Ok"
+			})
+		}
+	</script>
+}

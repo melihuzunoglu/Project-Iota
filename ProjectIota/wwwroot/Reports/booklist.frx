@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/22/2024 14:47:30" ReportInfo.Modified="02/22/2024 20:25:02" ReportInfo.CreatorVersion="2024.1.3.0">
+  <Dictionary>
+    <PostgresDataConnection Name="Connection" ConnectionString="rijcmlqJE91c6oB8RLOBBLuIcqz4gyaSVlmERZFQtCvl4tA5ys4elbDuTyBl+BrsVHiuz+eGQWD6Y/Mn5goxHSlXjjZSXXlr+UtEfgkpe8E6ASz5QmrSOd2wG4oWR+sL5UvUFJT">
+      <TableDataSource Name="book" DataType="System.Int32" Enabled="true" TableName="book" SelectCommand="select * from &quot;book&quot; where &quot;author&quot;=@Parameter">
+        <Column Name="author" DataType="System.String"/>
+        <Column Name="title" DataType="System.String"/>
+        <Column Name="genre" DataType="System.String"/>
+        <CommandParameter Name="Parameter" DataType="19" Expression="[Parameter]"/>
+      </TableDataSource>
+    </PostgresDataConnection>
+    <Parameter Name="Parameter" DataType="System.String" Expression="&quot;a&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text7" Left="37.8" Top="9.45" Width="642.6" Height="18.9" Text="Book List" HorzAlign="Center" Font="Arial, 15pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="40.47" Width="718.2" Height="18.9">
+      <TextObject Name="Text2" Left="37.8" Width="75.6" Height="18.9" Text="author" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text4" Left="122.85" Width="66.15" Height="18.9" Text="title" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text6" Left="198.45" Width="66.15" Height="18.9" Text="genre" Font="Arial, 12pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="62.03" Width="718.2" Height="66.15" DataSource="book">
+      <TextObject Name="Text1" Left="37.8" Width="75.6" Height="18.9" Text="[book.author]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="122.85" Width="66.15" Height="18.9" Text="[book.title]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="198.45" Width="66.15" Height="18.9" Text="[book.genre]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="130.85" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

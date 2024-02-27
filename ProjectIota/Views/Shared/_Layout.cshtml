@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/x-icon" href="~/images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ProjectIota</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/ProjectIota.styles.css" asp-append-version="true" />
+
+	<!-- Syncfusion ASP.NET Core controls styles -->
+	<link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/24.2.4/fluent.css" />
+	<script src="https://cdn.syncfusion.com/ej2/24.2.4/dist/ej2.min.js"></script>
+
+</head>
+<body>
+	<header>
+	</header>
+	<div class="master_top_outer" id="div_master_top_outer">
+		<div class="master_top_logo">
+			<img alt="" src="~/images/logo.png" height="30" />
+		</div>
+		<div class="master_top_log_out" id="logout" style="@ViewBag.LogoutDisplay">
+			<a href="/User/LogOut">
+				<img alt="Çıkış" src="~/images/logout.png" height="20" />
+			</a>
+		</div>
+		<div class="global_clear"></div>
+	</div>
+	<div class="float-start" style="width:200px; min-height:400px; background-color:white;  border-right:1px solid #D3D3D3; position:fixed; top:50px; z-index:5;" id="menuOuter">
+		<partial name="~/Views/WebMenu/Index.cshtml" />
+	</div>
+	<div class="master_map">
+		@RenderSection("Map", required:false)
+	</div>
+	<div class="float-start" id="contentOuter" style="margin-left:205px; margin-top:85px; z-index:1; overflow:visible; overflow-x:hidden;">
+		<div style="padding:10px;">
+			@RenderBody()
+		</div>
+	</div>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+	<ejs-scripts></ejs-scripts>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			Set();
+		});
+
+		window.onresize = function (event) {
+			Set();
+		};
+
+		document.onresize = function (event) {
+			Set();
+		};
+
+		$(window).on("load", function () {
+			Set();
+		});
+
+		function Set() {
+			var docHeight = $(window).height();
+			var newHeightOfMenuOuter = docHeight - 33;
+			document.getElementById('menuOuter').style.height = newHeightOfMenuOuter + 'px';
+
+			var docWidth = $(window).width();
+			var newWidthOfContentOuter = docWidth - 225;
+			document.getElementById('contentOuter').style.width = newWidthOfContentOuter + 'px';
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@model FastReport.Web.WebReport
+@{
+	ViewData["Title"] = "Show Report";
+}
+
+@section Map {
+	Show Report
+ }
+@using (Html.BeginForm("ShowReport", "Report", FormMethod.Post))
+{
+	<div style="width:300px;">
+		<div style="margin-bottom:10px;">
+			<label>Type</label>
+			<input type="text" name="type" class="form-control" value="CategoryList" readonly />
+		</div>
+		<div style="margin-bottom:10px;">
+			<label>Name (Filter with like (%) statements)</label>
+			<input type="text" name="payload" class="form-control"/>
+		</div>
+		<div style="margin-bottom:10px;">
+			<button type="submit" class="btn btn-primary">Filter</button>
+		</div>
+	</div>
+}
+<div style="width:800px!important; overflow:hidden;">
+	@await Model.Render()
+</div>
