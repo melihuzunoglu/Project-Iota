@@ -20,7 +20,7 @@ builder.Services.AddStackExchangeRedisCache(redisOptions =>
 );
 
 //Syncfusion
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cWWhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEFjW39ZcHZQRWRUUUJxXQ==");
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("");
 
 //FastReport
 var startup = new Startup(builder.Configuration);
